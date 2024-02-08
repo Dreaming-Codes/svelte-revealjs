@@ -3,6 +3,9 @@
 This is a collection of Svelte components that can be used to create presentations using Reveal.js.
 A lot of component are straight up copied from Animotion.js[https://github.com/animotionjs/animotion] and adapted to be used as a library for Svelte without needing to use their template.
 
+## Example
+You can see an example code in the `src/routes` folder.
+
 ## Developing
 This project uses Bun instead of Node.js. To start developing, install bun first.
 ```bash
