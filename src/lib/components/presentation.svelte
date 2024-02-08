@@ -8,7 +8,12 @@
 
 	export let options: PresentationOptions;
 
-	$: revealOptions= {
+	/**
+	 * Disable HMR (Hot Module Replacement)
+	 */
+	export let disableHMR = false;
+
+	$: revealOptions = {
 		...options,
 		highlight: {
 			...options.highlight,
@@ -16,7 +21,7 @@
 		},
 		// TODO: manually handle history to avoid causing problems to the svelte router for now we disable it
 		hash: false,
-		history: false,
+		history: false
 	} as Reveal.Options;
 
 	export let deck: Reveal.Api | null = null;
@@ -68,7 +73,9 @@
 		});
 
 		// reload page after update to avoid HMR issues
+		if (!disableHMR) {
 			reloadPageAfterUpdate();
+		}
 	});
 
 	function highlightCodeBlocks(deck: Reveal.Api) {
