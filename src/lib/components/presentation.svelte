@@ -93,3 +93,10 @@
 		<slot />
 	</div>
 </div>
+
+<style>
+    .reveal {
+        width: var(--reveal-width, 100%);
+        height: var(--reveal-height, 100vh);
+    }
+</style>

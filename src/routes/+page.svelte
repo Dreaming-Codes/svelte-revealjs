@@ -105,8 +105,7 @@
 	};
 </script>
 
-<!-- TODO: FIX THE NEED TO MANUALY SET THE WIDTH AND HEIGHT -->
-<div style="width: 100vw; height: 100vh">
+<div>
 	<Presentation options="{revealjsOptions}">
 		<Slide>
 			<h1>Slide 1</h1>
@@ -115,5 +114,4 @@
 			<h1>Slide 2</h1>
 		</Slide>
 	</Presentation>
-
 </div>
