@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher, onMount } from 'svelte';
-	import Reveal from 'reveal.js';
 	import 'reveal.js/dist/reveal.css';
 	import type { PresentationOptions } from '$lib/types.js';
+	import type Reveal from 'reveal.js';
 
 	const dispatch = createEventDispatcher<{ onInitialize: Reveal.Api }>();
 
@@ -21,7 +21,10 @@
 
 	export let deck: Reveal.Api | null = null;
 
-	onMount(() => {
+	onMount(async () => {
+		const revealModule = await import('reveal.js');
+		const Reveal = revealModule.default;
+
 		// create deck instance
 		deck = new Reveal(revealOptions);
 

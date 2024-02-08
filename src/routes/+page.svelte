@@ -1,16 +1,16 @@
 <script lang="ts">
 	import Presentation from '../lib/components/presentation.svelte';
 	import Slide from '../lib/components/slide.svelte';
-	import RevealHighlight from 'reveal.js/plugin/highlight/highlight';
+	//import RevealHighlight from 'reveal.js/plugin/highlight/highlight';
 	import RevealMarkdown from 'reveal.js/plugin/markdown/markdown';
-	import RevealMath from 'reveal.js/plugin/math/math';
+	//import RevealMath from 'reveal.js/plugin/math/math';
 	import RevealNotes from 'reveal.js/plugin/notes/notes';
-	//import RevealSearch from 'reveal.js/plugin/search/search';
+	import RevealSearch from 'reveal.js/plugin/search/search';
 	//import RevealZoom from 'reveal.js/plugin/zoom/zoom';
-	import type { HLJSApi } from 'highlight.js';
+	//import type { HLJSApi } from 'highlight.js';
 	import type { PresentationOptions } from '$lib/types.js';
 
-	function svelte(hljs: HLJSApi) {
+/*	function svelte(hljs: HLJSApi) {
 		return {
 			subLanguage: 'xml',
 			contains: [
@@ -61,7 +61,7 @@
 
 	function registerLanguages(hljs: HLJSApi) {
 		hljs.registerLanguage('svelte', svelte);
-	}
+	}*/
 
 	const revealjsOptions: PresentationOptions = {
 		// presentation size respecting aspect ratio
@@ -73,11 +73,12 @@
 		minScale: 0.2,
 		maxScale: 2.0,
 		// plugins
-		plugins: [RevealMarkdown, RevealHighlight, RevealMath, RevealNotes/*, RevealSearch, RevealZoom*/],
+		//TODO: Fix disabled plugins to work with ssr
+		plugins: [RevealMarkdown, RevealNotes, RevealSearch/*, RevealZoom, RevealHighlight, RevealMath*/],
 		// syntax highlight options
 		highlight: {
 			// add new languages
-			beforeHighlight: registerLanguages,
+			//beforeHighlight: registerLanguages,
 		},
 		// slide controls
 		controls: true,
